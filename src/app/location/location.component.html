@@ -1,0 +1,42 @@
+<div class="wirelessCoffeeLocation">
+  <div class="wirelessCoffeeGreenDot"></div>
+  <div>
+    <h3>{{location.name||'[New Location]'}}
+      <small class="wirelessCoffeeEditLink" (click)="toggleEditing()" *ngIf="showToggle">{{editing?'Save':'Edit'}}</small>
+      <small class="wirelessCoffeeEditLink" (click)="deleteLocation()" *ngIf="showToggle">Delete</small>
+      <small class="wirelessCoffeeEditLink" (click)="approveLocation()" *ngIf="showToggle&&!location.approved">Approve</small>
+    </h3>
+    <p *ngIf="editing">
+      <b>📛&nbsp;&nbsp;Name:</b>
+      <wireless-coffee2-editable-text-field
+        [data]="location.name"
+        [editing]="editing">
+
+      </wireless-coffee2-editable-text-field>
+    </p>
+    <p>
+      <b>🗺&nbsp;&nbsp;Location:</b>
+      <wireless-coffee2-editable-text-field
+        [data]="location.location.streets"
+        [editing]="editing">
+
+      </wireless-coffee2-editable-text-field>
+    </p>
+    <p>
+      <b>💻&nbsp;&nbsp;SSID:</b>
+      <wireless-coffee2-editable-text-field
+        [data]="location.ssid"
+        [editing]="editing">
+
+      </wireless-coffee2-editable-text-field>
+    </p>
+    <p>
+      <b>🔒&nbsp;&nbsp;Password:</b>
+      <wireless-coffee2-editable-text-field
+        [data]="location.password"
+        [editing]="editing">
+
+      </wireless-coffee2-editable-text-field>
+    </p>
+  </div>
+</div>
